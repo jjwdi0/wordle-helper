@@ -6,13 +6,13 @@ class Analyser:
         self.database = database
         self.candidates = [*self.database.words_list]
     
-    def get_best_word(self):
+    def get_best_word(self, tried):
+        if tried == 1:
+            return 'serai'
         best_word = ''
         max_result = 1e9
         count = 0
         for word in self.candidates:
-            if count * 100 // len(self.candidates) != (count + 1) * 100 // len(self.candidates):
-                print(str((count + 1) * 100 // len(self.candidates)) + '''% completed''')
             count += 1
             results = {}
             for word2 in self.candidates:

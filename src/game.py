@@ -24,7 +24,7 @@ class Game:
                         break
                 except:
                     if query == 'help':
-                        recommend = self.analyser.get_best_word()
+                        recommend = self.analyser.get_best_word(try_count)
                         print('Recommended Word is: ' + recommend)
             
             while True:
