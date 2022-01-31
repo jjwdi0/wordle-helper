@@ -4,7 +4,7 @@ from re import L
 class Analyser:
     def __init__(self, database):
         self.database = database
-        self.candidates = [*self.database.get_word_list()]
+        self.candidates = [*self.database.words_list]
     
     def get_best_word(self):
         best_word = ''

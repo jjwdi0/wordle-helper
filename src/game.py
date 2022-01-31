@@ -4,10 +4,11 @@ import analyser
 class Game:
     def __init__(self, database):
         self.database = database
+        self.words_list = self.database.words_list
     
     def run(self):
         print('-' * 80)
-        print('Welcome to Wordle Helper')
+        print('Welcome to Wordle Helper!')
         print('')
 
         self.analyser = analyser.Analyser(self.database)
@@ -15,10 +16,11 @@ class Game:
         try_count = 0
         while try_count < 6:
             try_count += 1
+            print()
             while True:
-                query = input(f'Your {self.count_string(try_count)}:')
+                query = input(f'Your {self.count_string(try_count)} try(Type help to get help): ')
                 try:
-                    if self.database.get_word_list()[query]:
+                    if self.words_list[query]:
                         break
                 except:
                     if query == 'help':
@@ -26,7 +28,7 @@ class Game:
                         print('Recommended Word is: ' + recommend)
             
             while True:
-                result = input('Black: 0\nGreen: 1\nYellow: 2\nSubmit Result: ')
+                result = input('Submit Result(Black: 0/Green: 1/Yellow: 2): ')
                 if len(result) == 5 and (result.count('0') + result.count('1') + result.count('2') == 5):
                     break
             

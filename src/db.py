@@ -13,6 +13,3 @@ class DB:
     
     def test(self):
         print(self.words_list)
-
-    def get_word_list(self):
-        return self.words_list
