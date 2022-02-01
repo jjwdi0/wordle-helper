@@ -12,7 +12,7 @@ class Analyser:
         best_word = ''
         max_result = 1e9
         count = 0
-        for word in self.candidates:
+        for word in [*self.database.words_list]:
             count += 1
             results = {}
             for word2 in self.candidates:
@@ -22,10 +22,12 @@ class Analyser:
                 except:
                     results[result] = 1
             
-            if max_result > max(results.values()):
+            if max_result > max(results.values()) or (max_result == max(results.values()) and '11111' in results.keys()):
                 max_result = max(results.values())
                 best_word = word
         print()
+        print('whole candidates: ', len(self.candidates))
+        print('estimate number: ', max_result)
         
         return best_word
     
