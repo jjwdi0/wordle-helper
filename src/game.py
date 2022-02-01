@@ -43,5 +43,7 @@ class Game:
             return str(count) + 'st'
         elif count == 2:
             return str(count) + 'nd'
+        elif count == 3:
+            return str(count) + 'rd'
         else:
             return str(count) + 'th'
